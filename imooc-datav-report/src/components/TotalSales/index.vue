@@ -1,15 +1,28 @@
+
 <template>
-    <div class="total-sales">
-        <CommonCard title="累計銷售額" value="$ 123,500,1">
-            <template>
-                <div class="compare"></div>
-            </template>
-            <template v-slot:footer>
-               <sapn> 昨日銷售額 </sapn>
-               <sapn class="money"> $ 12,533,000 </sapn>
-            </template>
-        </CommonCard>
-    </div>
+  <CommonCard
+    title="累计销售额"
+    value="123"
+  >
+    <template>
+      <div class="compare-wrapper">
+        <div class="compare">
+          <span>日同比</span>
+          <span class="emphasis">1234</span>
+          <div class="increase" />
+        </div>
+        <div class="compare">
+          <span>月同比</span>
+          <span class="emphasis">1234</span>
+          <div class="decrease" />
+        </div>
+      </div>
+    </template>
+    <template v-slot:footer>
+      <span>昨日销售额 </span>
+      <span class="emphasis">1234</span>
+    </template>
+  </CommonCard>
 </template>
 
 <script>
@@ -19,18 +32,20 @@ export default {
     mixins:[commonCardMixin]
 }
 </script>
-<style scoped lang="scss">
-.compare{
+<style lang="scss" scoped>
+.compare-wrapper {
     height: 100%;
-    background: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .compare {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        margin-top: 3px;
+        color: #666;    
+    }
 }
-span{
-    font-size: 12px;
-}
-.money{
-    margin-left: 5px;
-    color: #000;
-    font-family: system-ui;
-    font-weight: 800;
-}
+
 </style>

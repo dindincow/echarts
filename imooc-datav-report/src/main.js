@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './plugins/element.js'
-import {ECharts} from 'echarts'
+import * as ECharts from 'echarts'
 
 Vue.config.productionTip = false;
 Vue.prototype.$echarts = ECharts;
