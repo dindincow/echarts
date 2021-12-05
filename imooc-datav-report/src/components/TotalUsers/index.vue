@@ -15,7 +15,7 @@
                 <span class="emphasis">5.73%</span>
                 <div class="decrease"></div>
             </div>
-          
+        
         </template>  
     </CommonCard>
 </template>
@@ -41,17 +41,64 @@ export default {
                 {
                     type:'bar',
                     stack:'總量',
-                    data:[120],
+                    data:[220],
                     barWidth:10,
                     itemStyle:{
                         color:'#45c946'
-                    }
+                    },
+    
                 },{
                     type:'bar',
                     stack:'總量',
                     data:[300],
                     itemStyle:{
                         color:'#eee'
+                    }
+                },
+                ,{
+                    type:'custom',
+                    stack:'總量',
+                    data:[220],
+                    renderItem:(params,api)=>{
+                        const value = api.value(0);
+                        const endPoint = api.coord([value,0]);
+                        return {
+                            type:'group',
+                            position:endPoint,
+                            children:[
+                                {
+                                    type:'path',
+                                    shape:{
+                                        d:'M0 767.909l512.029-511.913L1024 767.909 0 767.909z',
+                                        x:-5,
+                                        y:5,
+                                        width:10,
+                                        height:10,
+                                        layout:'cover'
+                                    },
+                                    style:{
+                                        fill:'red'
+                                    },
+                                    
+                                },
+                                {
+                                    type:'path',
+                                    shape:{
+                                        d:'M1024 255.996 511.971 767.909 0 255.996 1024 255.996z',
+                                        x:-5,
+                                        y:-15,
+                                        width:10,
+                                        height:10,
+                                        layout:'cover'
+                                    },
+                                    style:{
+                                        fill:'red'
+                                    },
+                                   
+                                }
+                            ]
+                            
+                        }
                     }
                 }
             ],

@@ -1,9 +1,15 @@
 <template>
     <div class="home">
         <TopView/>
-        <SalesView/>
+        <!-- <SalesView/>
         <MapView/>
-        <BottomView/>
+        <BottomView/> -->
+        <v-chart :options="mydata"></v-chart>
+        sdhfsdh
+        sdhfsdh
+        sdhfsdh
+        sdhfsdh
+        sdhfsdh
     </div>
 </template>
 
@@ -20,7 +26,23 @@ export default {
         SalesView,
         MapView,
         BottomView 
-    }
+    },
+    data() {
+        return {
+            mydata: {
+                xAxis: {
+                    type: "category",
+                },
+                yAxis: {  
+                    type:'value'
+                }, 
+                series:{
+                    type:'line',
+                    data:[100,200,400]
+                }
+            },
+        };
+    },
 }
 </script>
 <style scoped lang="scss">
